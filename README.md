@@ -13,6 +13,7 @@ MySQL是一种开放源代码的关系型数据库管理系统，目前属于 Or
 ####2.图形界面工具phpmyadmin
 下载地址[http://www.phpmyadmin.net/home_page/downloads.php](http://www.phpmyadmin.net/home_page/downloads.php)
 或者百度搜索phpmyadmin下载
+
 下载完成后，解压并放到网站的根目录即可，最后访问http://localhost/phpmyadmin/index.php，进入管理界面。
 
 ##MYSQL语法
@@ -26,14 +27,21 @@ MySQL是一种开放源代码的关系型数据库管理系统，目前属于 Or
 ####1.3 使用数据库
  	use xitongxue;
 
- ###2.常用的数据类型
+###2.常用的数据类型
 (1) int 整形　长度一般取10
+
 (2) varchar　字符串　长度最大一般取255
+
 (3) text　文本　
+
 (4) float　单精度浮点　用法(10,2) 总长10位,保留到小数点后2位　有误差
+
 (5) double　双精度浮点　用法(10,2) 总长10位,保留到小数点后2位　有误差
+
 (6) decimal  小数　没有误差
+
 (5) date　日期
+
 (6) enum　枚举
 
 ###3.创建你的第一张表
@@ -44,5 +52,5 @@ MySQL是一种开放源代码的关系型数据库管理系统，目前属于 Or
  	drop table user;
 ####3.3 更新表名
  	rename table `xitongxue`.`user` TO `xitongxue`.`user_file`;
- ####3.4 添加字段
+####3.4 添加字段
  	alter table `user` ADD `age` INT NOT NULL ;
