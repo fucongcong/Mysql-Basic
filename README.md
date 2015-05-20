@@ -47,10 +47,23 @@ MySQL是一种开放源代码的关系型数据库管理系统，目前属于 Or
 ###3.创建你的第一张表
 
 ####3.1 创建表
-	create table user;
+
+````
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+````
 ####3.2 删除表	
- 	drop table user;
+
+````
+DROP TABLE `user`;
+````
 ####3.3 更新表名
  	rename table `xitongxue`.`user` TO `xitongxue`.`user_file`;
 ####3.4 添加字段
  	alter table `user` ADD `age` INT NOT NULL ;
+
+
+####4.插入数据
+insert into `user` set  `age`
