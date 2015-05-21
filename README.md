@@ -21,11 +21,11 @@ MySQL是一种开放源代码的关系型数据库管理系统，目前属于 Or
 ###1.创建你的第一个数据库
 
 ####1.1 创建数据库
-	create database xitongxue;
+	CREATE DATABASE xitongxue;
 ####1.2 删除数据库		
- 	drop database xitongxue;
+ 	DROP DATABASE xitongxue;
 ####1.3 使用数据库
- 	use xitongxue;
+ 	USE xitongxue;
 
 ###2.常用的数据类型
 (1) int 整形　长度一般取10
@@ -70,28 +70,116 @@ DROP TABLE `user`;
  ALTER TABLE `user` ADD `age` INT NOT NULL ;
 ````
 
-####4.插入数据
+###4.插入数据
 
 ````
 INSERT INTO `user` set  `age` = 1;
 ````
 
-####5.删除数据
+###5.删除数据
 
 ````
 DELETE FROM `user` WHERE  1;
 ````
 
-####6.更新数据
+###6.更新数据
 
 ````
 UPDATE `user` SET `age`=2 WHERE 1;
 ````
 
-####7.查询数据
+##查询
+````
+user 
+
+id name birthday sex 
+````
+###1.语句格式
+SELECT [ALL|DISTINCT] <目标列表达式>
+                                                [，<目标列表达式>] …
+
+FROM <表名或视图名>[， <表名或视图名> ] …
+
+[ WHERE <条件表达式> ]
+
+[ GROUP BY <列名1> [ HAVING <条件表达式> ] ]
+
+[ ORDER BY <列名2> [ ASC|DESC ] ]；
+
+###2. 单表查询
+
+###３. 单表查询
+
+####3.1 查询指定列
+[例]  查询全体用户的姓名与生日。
 
 ````
-SELECT *  FROM `user` WHERE  1;
+SELECT name，birthday
+FROM user；
+````
+####3.2 查询全部列
+[例]  查询全体用户的详细记录。
+
+````
+SELECT *
+FROM user；
+````
+####3.3 查询经过计算的值
+
+1.算术表达式
+2.字符串常量
+3.函数
+4.列别名
+
+````
+SELECT name ，'Year of Birth: ’  BIRTH，
+   2015-birthday，LOWER(sex)  
+FROM user；
 ````
 
-##查询进阶
+####3.4 取消取值重复的行
+
+指定DISTINCT关键词，去掉表中重复的行 
+ 
+````
+SELECT DISTINCT birthday
+FROM user； 
+````
+
+####3.5 常用的查询条件Where 子句
+
+查询条件|谓词
+:---------------|:---------------
+比较|=，>，<，>=，<=，!=，<>；
+确定集合|IN，NOT IN
+字符匹配|LIKE，NOT LIKE
+空    值|IS NULL，IS NOT NULL
+多重条件（逻辑运算）|AND，OR，NOT
+
+####3.６ ORDER BY子句
+
+可以按一个或多个属性列排序
+升序：ASC；降序：DESC；缺省值为升序
+
+####3.７ 聚集函数
+计数
+COUNT（[DISTINCT|ALL] *）
+COUNT（[DISTINCT|ALL] <列名>）
+
+计算总和
+SUM（[DISTINCT|ALL] <列名>）	
+
+计算平均值
+AVG（[DISTINCT|ALL] <列名>）
+
+最大最小值
+MAX（[DISTINCT|ALL] <列名>）
+MIN（[DISTINCT|ALL] <列名>）
+
+####3.8 GROUP BY子句
+
+HAVING短语作用于组，从中选择满足条件的组
+
+区别：
+WHERE子句中的条件表达式在分组之前起作用
+而HAVING子句中的条件表达式在形成分组后起作用
