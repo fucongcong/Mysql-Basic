@@ -60,10 +60,38 @@ CREATE TABLE `user` (
 DROP TABLE `user`;
 ````
 ####3.3 更新表名
- 	rename table `xitongxue`.`user` TO `xitongxue`.`user_file`;
-####3.4 添加字段
- 	alter table `user` ADD `age` INT NOT NULL ;
 
+````
+ RENAME TABLE `xitongxue`.`user` TO `xitongxue`.`user_file`;
+````
+####3.4 添加字段
+
+````
+ ALTER TABLE `user` ADD `age` INT NOT NULL ;
+````
 
 ####4.插入数据
-insert into `user` set  `age`
+
+````
+INSERT INTO `user` set  `age` = 1;
+````
+
+####5.删除数据
+
+````
+DELETE FROM `user` WHERE  1;
+````
+
+####6.更新数据
+
+````
+UPDATE `user` SET `age`=2 WHERE 1;
+````
+
+####7.查询数据
+
+````
+SELECT *  FROM `user` WHERE  1;
+````
+
+##查询进阶
