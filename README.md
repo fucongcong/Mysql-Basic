@@ -92,7 +92,7 @@ UPDATE `user` SET `age`=2 WHERE 1;
 ````
 user 
 
-id name birthday sex 
+id name age sex 
 ````
 ###1.语句格式
 SELECT [ALL|DISTINCT] <目标列表达式>
@@ -108,23 +108,21 @@ FROM <表名或视图名>[， <表名或视图名> ] …
 
 ###2. 单表查询
 
-###3. 单表查询
-
-####3.1 查询指定列
+####2.1 查询指定列
 [例]  查询全体用户的姓名与生日。
 
 ````
-SELECT name，birthday
+SELECT name，age
 FROM user；
 ````
-####3.2 查询全部列
+####2.2 查询全部列
 [例]  查询全体用户的详细记录。
 
 ````
 SELECT *
 FROM user；
 ````
-####3.3 查询经过计算的值
+####2.3 查询经过计算的值
 
 1.算术表达式
 2.字符串常量
@@ -133,20 +131,20 @@ FROM user；
 
 ````
 SELECT name ，'Year of Birth: ’  BIRTH，
-   2015-birthday，LOWER(sex)  
+   2015-age，LOWER(sex)  
 FROM user；
 ````
 
-####3.4 取消取值重复的行
+####2.4 取消取值重复的行
 
 指定DISTINCT关键词，去掉表中重复的行 
  
 ````
-SELECT DISTINCT birthday
+SELECT DISTINCT age
 FROM user； 
 ````
 
-####3.5 常用的查询条件Where 子句
+####2.5 常用的查询条件Where 子句
 
 查询条件|谓词
 :---------------|:---------------
@@ -156,12 +154,12 @@ FROM user；
 空    值|IS NULL，IS NOT NULL
 多重条件（逻辑运算）|AND，OR，NOT
 
-####3.6 ORDER BY子句
+####2.6 ORDER BY子句
 
 可以按一个或多个属性列排序
 升序：ASC；降序：DESC；缺省值为升序
 
-####3.7 聚集函数
+####2.7 聚集函数
 计数
 COUNT（[DISTINCT|ALL] *）
 COUNT（[DISTINCT|ALL] <列名>）
@@ -176,10 +174,22 @@ AVG（[DISTINCT|ALL] <列名>）
 MAX（[DISTINCT|ALL] <列名>）
 MIN（[DISTINCT|ALL] <列名>）
 
-####3.8 GROUP BY子句
+####2.8 GROUP BY子句
 
 HAVING短语作用于组，从中选择满足条件的组
 
 区别：
 WHERE子句中的条件表达式在分组之前起作用
 而HAVING子句中的条件表达式在形成分组后起作用
+
+###3. 多表连接查询
+
+连接查询：同时涉及多个表的查询
+
+````
+SELECT user.name，course.title
+FROM    user，course    /*多表连接*/
+WHERE  course.userId = user.id 
+   and user.age > 20 ；
+````
+
