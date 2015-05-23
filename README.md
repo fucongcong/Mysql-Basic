@@ -73,7 +73,7 @@ DROP TABLE `user`;
 ###4.插入数据
 
 ````
-INSERT INTO `user` set  `age` = 1;
+INSERT INTO `user`  (age)  values (25);
 ````
 
 ###5.删除数据
@@ -98,7 +98,7 @@ id name age sex
 SELECT [ALL|DISTINCT] <目标列表达式>
                                                 [，<目标列表达式>] …
 
-FROM <表名或视图名>[， <表名或视图名> ] …
+FROM <表名>[， <表名> ] …
 
 [ WHERE <条件表达式> ]
 
@@ -159,7 +159,26 @@ FROM user；
 可以按一个或多个属性列排序
 升序：ASC；降序：DESC；缺省值为升序
 
-####2.7 聚集函数
+####2.7 GROUP BY子句
+
+HAVING短语作用于组，从中选择满足条件的组
+
+区别：
+WHERE子句中的条件表达式在分组之前起作用	
+而HAVING子句中的条件表达式在形成分组后起作用
+
+####2.8 Limit用法
+
+limit m,n 其中m是指记录开始的值，从0开始。表示从第m+1条开始，取n条。
+
+````
+SELECT * FROM `user` limit 1;
+````
+````
+SELECT * FROM `user` limit 0,3;
+````
+
+####2.9 聚集函数
 计数
 COUNT（[DISTINCT|ALL] *）
 COUNT（[DISTINCT|ALL] <列名>）
@@ -173,14 +192,6 @@ AVG（[DISTINCT|ALL] <列名>）
 最大最小值
 MAX（[DISTINCT|ALL] <列名>）
 MIN（[DISTINCT|ALL] <列名>）
-
-####2.8 GROUP BY子句
-
-HAVING短语作用于组，从中选择满足条件的组
-
-区别：
-WHERE子句中的条件表达式在分组之前起作用
-而HAVING子句中的条件表达式在形成分组后起作用
 
 ###3. 多表连接查询
 
