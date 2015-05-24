@@ -90,9 +90,13 @@ UPDATE `user` SET `age`=2 WHERE 1;
 
 ##查询
 ````
-user 
+user 表
 
 id name age sex 
+
+course 表
+
+id userId title content 
 ````
 ###1.语句格式
 SELECT [ALL|DISTINCT] <目标列表达式>
